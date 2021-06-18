@@ -42,6 +42,4 @@ public class SearchPage {
         System.out.println("The last heading is: " + lastHeading);
 
     }
-
-
 }

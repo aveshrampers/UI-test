@@ -5,14 +5,12 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 import pageObjects.HomePage;
 import pageObjects.SearchPage;
 
 public class Steps {
 
     WebDriver driver;
-
     HomePage homePage;
     SearchPage searchPage;
 

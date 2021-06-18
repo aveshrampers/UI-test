@@ -19,7 +19,6 @@ import static org.junit.Assert.assertEquals;
 
 public class HomePage {
     private static final String Base_Url = "https://push.api.bbci.co.uk";
-    private static Response response;
 
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -60,7 +59,7 @@ public class HomePage {
         String jsonString = teams.asString();
         System.out.println(jsonString);
 
-        List<Map> otpGateway = with(jsonString)
+        List<Map> names = with(jsonString)
                 .get("tournamentDatesWithEvents.findAll {it -> it.Friday-18th-June.events != nullValue}.collect{[it.id]}");
         /*List<String> names = teams.jsonPath().("$.payload[0].body.matchData[0]");
 
