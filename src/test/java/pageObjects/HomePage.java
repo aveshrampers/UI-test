@@ -24,30 +24,6 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//*[@id=\"orb-nav-links\"]/ul/li[3]/a")
-    @CacheLookup
-    WebElement menuItemSport;
-
-    @FindBy(xpath = "//*[@id=\"u4362927169702628\"]/div/nav/div[1]/div/ul/li[2]/a")
-    @CacheLookup
-    WebElement menuItemFootball;
-
-    @FindBy(xpath = "//*[@id=\"sp-nav-secondary\"]/li[2]/a")
-    @CacheLookup
-    WebElement menuItemScoresAndFixtures;
-
-    public void NavigateToSportPage() {
-        menuItemSport.click();
-    }
-
-    public void NavigateToFootballPage() {
-        menuItemFootball.click();
-    }
-
-    public void NavigateToScoresAndFixturesPage() {
-        menuItemScoresAndFixtures.click();
-    }
-
     public void fnOutputMatches() {
         RestAssured.baseURI = Base_Url;
         Response teams = given().log().all()
