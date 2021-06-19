@@ -72,8 +72,53 @@ public class Steps {
     }
 
     @Then("Error messages must be displayed")
-    public void display_error_messages(){
+    public void display_error_messages() {
         signInPage.blank_credential_message();
+    }
+
+    @Then("Incorrect error message must be displayed")
+    public void login_with_incorrect_password_message() {
+        signInPage.incorrect_password();
+    }
+
+    @Then("Special characters not allowed error message must be displayed")
+    public void login_with_special_characters() {
+        signInPage.using_special_characters_message();
+    }
+
+    @Then("Username too short error message must be displayed")
+    public void login_with_a_single_character() {
+        signInPage.single_character_error_message();
+    }
+
+    @Then("Email does not look right error message must be displayed")
+    public void login_with_incomplete_email() {
+        signInPage.incomplete_email_error_message();
+    }
+
+    @Then("Username too long error message must be displayed")
+    public void login_with_username_too_long() {
+        signInPage.username_too_long_error_message();
+    }
+
+    @Then("Password too short error message must be displayed")
+    public void login_with_password_too_short() {
+        signInPage.password_too_short_error_message();
+    }
+
+    @Then("Password isn't valid error message must be displayed")
+    public void login_with_only_numeric_password() {
+        signInPage.numeric_error_message();
+    }
+
+    @Then("Invalid password error message must be displayed")
+    public void login_with_only_alphabets_as_password() {
+        signInPage.alphabets_error_message();
+    }
+
+    @Then("Password is too long error message must be displayed")
+    public void login_with_password_too_long() {
+        signInPage.password_too_long_error_message();
     }
 
     @After

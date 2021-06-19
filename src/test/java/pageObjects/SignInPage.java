@@ -67,4 +67,49 @@ public class SignInPage {
         Assert.assertEquals("Something's missing. Please check and try again.", errMsgUser);
         Assert.assertEquals("Something's missing. Please check and try again.", errMsgPass);
     }
+
+    public void incorrect_password() {
+        String errMsgPass = msgPassword.getText();
+        Assert.assertEquals("That's not the right password for that account. Reset your password here.", errMsgPass);
+    }
+
+    public void using_special_characters_message() {
+        String errMsg = msgUserID.getText();
+        Assert.assertEquals("Usernames can only include... Letters, numbers and these characters: ?/|}{+=_-^~`%$#", errMsg);
+    }
+
+    public void single_character_error_message() {
+        String errMsg = msgUserID.getText();
+        Assert.assertEquals("Sorry, that username's too short. It needs to be at least two characters.", errMsg);
+    }
+
+    public void incomplete_email_error_message() {
+        String errMsg = msgUserID.getText();
+        Assert.assertEquals("Sorry, that email doesn’t look right. Please check it's a proper email.", errMsg);
+    }
+
+    public void username_too_long_error_message() {
+        String errMsg = msgUserID.getText();
+        Assert.assertEquals("Sorry, that username's too long. It can't be more than 50 characters.", errMsg);
+    }
+
+    public void password_too_short_error_message() {
+        String errMsg = msgPassword.getText();
+        Assert.assertEquals("Sorry, that password is too short. It needs to be eight characters or more.", errMsg);
+    }
+
+    public void numeric_error_message() {
+        String errMsg = msgPassword.getText();
+        Assert.assertEquals("Sorry, that password isn't valid. Please include a letter.", errMsg);
+    }
+
+    public void alphabets_error_message() {
+        String errMsg = msgPassword.getText();
+        Assert.assertEquals("Sorry, that password isn't valid. Please include something that isn't a letter.", errMsg);
+    }
+
+    public void password_too_long_error_message() {
+        String errMsg = msgPassword.getText();
+        Assert.assertEquals("Sorry, that password is too long. It can't be more than 50 characters.", errMsg);
+    }
 }
