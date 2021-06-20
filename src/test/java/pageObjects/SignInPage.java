@@ -70,7 +70,7 @@ public class SignInPage {
 
     public void incorrect_password() {
         String errMsgPass = msgPassword.getText();
-        Assert.assertEquals("That's not the right password for that account. Reset your password here.", errMsgPass);
+        Assert.assertEquals("Uh oh, that password doesn’t match that account. Please try again.", errMsgPass);
     }
 
     public void using_special_characters_message() {
