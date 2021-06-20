@@ -3,17 +3,18 @@ package stepDefinitions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
-import io.cucumber.java.sl.In;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjects.HomePage;
+import pageObjects.FixturesPage;
 import pageObjects.SearchPage;
 import pageObjects.SignInPage;
+
+import java.util.concurrent.TimeUnit;
 
 public class Steps {
 
     WebDriver driver;
-    HomePage homePage;
+    FixturesPage fixturesPage;
     SearchPage searchPage;
     SignInPage signInPage;
 
@@ -23,7 +24,10 @@ public class Steps {
         if (driver == null) {
             driver = new ChromeDriver();
         }
-        homePage = new HomePage(driver);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
+        fixturesPage = new FixturesPage(driver);
         searchPage = new SearchPage(driver);
         signInPage = new SignInPage(driver);
     }
@@ -36,7 +40,7 @@ public class Steps {
 
     @Then("All team names with a match today must be outputted")
     public void output_all_fixtures() {
-        homePage.fnOutputMatches();
+        fixturesPage.fnOutputMatches();
     }
 
     //Output the first and last heading from search results
