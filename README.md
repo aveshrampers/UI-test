@@ -19,8 +19,14 @@
 
 Automation of the website to output the following:
 
-•	Football fixtures of the day
+•	Navigate to football page
 
 •	First and Last sport article headings
 
-•	Negative response messages on the login screen
+•	Negative response message on the login screen
+
+To Execute Test
+
+Expand src/test/java/testRunner, right click on Runner class and select Run "Runner"
+
+4 hours to complete
