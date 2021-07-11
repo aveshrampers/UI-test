@@ -3,9 +3,10 @@ package stepDefinitions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjects.FixturesPage;
+import pageObjects.FootballPage;
 import pageObjects.SearchPage;
 import pageObjects.SignInPage;
 
@@ -14,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class Steps {
 
     WebDriver driver;
-    FixturesPage fixturesPage;
+    FootballPage fixturesPage;
     SearchPage searchPage;
     SignInPage signInPage;
 
@@ -27,7 +28,7 @@ public class Steps {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
-        fixturesPage = new FixturesPage(driver);
+        fixturesPage = new FootballPage(driver);
         searchPage = new SearchPage(driver);
         signInPage = new SignInPage(driver);
     }
@@ -39,15 +40,16 @@ public class Steps {
     }
 
     @Then("All team names with a match today must be outputted")
-    public void output_all_fixtures() {
-        fixturesPage.fnOutputMatches();
+    public void navigateToFootballPage() {
+        fixturesPage.navigateToFootball();
+        Assert.assertEquals("Football - BBC Sport", driver.getTitle());
+
     }
 
     //Output the first and last heading from search results
     @When("User clicks on search bar and searches for {string}")
-    public void userClicksOnSearchBarAndSearchesFor(String arg) {
-        searchPage.search(arg);
-
+    public void user_clicks_on_search_bar_and_searches_for_sports(String arg0) {
+        searchPage.search(arg0);
     }
 
     @Then("First and Last heading must be outputted")
@@ -69,5 +71,10 @@ public class Steps {
     @After
     public void tearDown() {
         driver.quit();
+    }
+
+    @Then("Cant find email message must be displayed")
+    public void cantFindEmailMessageMustBeDisplayed() {
+        signInPage.cant_find_email_message();
     }
 }
