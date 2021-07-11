@@ -28,9 +28,9 @@ public class SearchPage {
     @CacheLookup
     WebElement titleLastHeading;
 
-    public void search() {
+    public void search(String arg) {
         txtSearch.click();
-        txtSearch.sendKeys("sports");
+        txtSearch.sendKeys(arg);
         btnSearch.click();
     }
 
